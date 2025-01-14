@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO0LHatGuyPage1</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('fondo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .content {
+            color: white;
+            text-align: center;
+            font-size: 24px;
+        }
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop>
+        <source src="fondo.mp4" type="video/mp4">
+        Tu navegador no soporta video.
+    </video>
+    <div class="content">
+        <h1 id="editable-title">A vin leguta el pene</h1>
+    </div>
+    <audio id="background-audio" autoplay loop>
+        <source src="sonido.mp3" type="audio/mpeg">
+        k.
+    </audio>
+    <script>
+        // Configuración del audio
+        const audio = document.getElementById('background-audio');
+        audio.volume = 1;
+
+
+        const title = document.getElementById('editable-title');
+        const savedTitle = localStorage.getItem('titleText');
+
+        if (savedTitle) title.textContent = savedTitle;
+
+        
+        title.addEventListener('click', () => {
+            const newTitle = prompt('C00lhatGuy: Escribe un nuevo título:', title.textContent);
+            if (newTitle !== null) {
+                title.textContent = newTitle;
+                localStorage.setItem('titleText', newTitle);
+            }
+        });
+
+        document.title = "C00lHatGuyPage1";
+        const newTitleForPage = prompt("Escribe un nuevo título para la página:", "C00lHatGuyPage1");
+        if (newTitleForPage) {
+            document.title = newTitleForPage;
+            console.log("Nuevo título establecido:", newTitleForPage);
+        }
+    </script>
+</body>
+</html>
